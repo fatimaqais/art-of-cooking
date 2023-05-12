@@ -33,6 +33,7 @@ class Recipe(models.Model):
     direction = models.TextField()
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
         User, related_name='recipe_likes', blank=True)
 
