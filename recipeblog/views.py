@@ -7,4 +7,4 @@ class PostRecipe(generic.ListView):
     model = Recipe
     queryset = Recipe.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
-    paginat_by = 6
+    paginate_by = 6
