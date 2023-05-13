@@ -1,0 +1,27 @@
+body {
+    font-family: 'Fira Sans', sans-serif;
+    background-color: rgb(196, 163, 129);
+}
+
+h1 {
+    font-family: 'Playfair Display', sans-serif;
+    color: rgb(238, 241, 189)
+}
+
+nav {
+    background-color: rgb(100, 69, 54);
+}
+
+.nav-options {
+    flex-direction: row;
+    justify-content: end;
+}
+
+.hamburger {
+    background-color: rgb(196, 163, 129)
+}
+
+footer {
+    background-color: rgb(100, 69, 54);
+    color:rgb(238, 241, 189)
+}
