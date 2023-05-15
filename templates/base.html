@@ -42,23 +42,23 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <form class="container-fluid justify-content-start">
-                            <button class="btn me-2" type="button"><a class="nav-link active"
+                            <button class="btn me-2" type="button"><a class="nav-link nav-btn active"
                                     aria-current="page" href="{% url 'home' %}">Home</a></button>
                         </form>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <button class="btn me-2" type="button"><a class="nav-link" href="#">Saved Recipes</a></button>
+                        <button class="btn me-2" type="button"><a class="nav-link nav-btn" href="#">Saved Recipes</a></button>
                     </li>
                     <li>
-                        <button class="btn me-2" type="button"><a class="nav-link" href="#">Logout</a></button>
+                        <button class="btn me-2" type="button"><a class="nav-link nav-btn" href="#">Logout</a></button>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <button class="btn me-2" type="button"><a class="nav-link" href="#">Register</a></button>
+                        <button class="btn me-2" type="button"><a class="nav-link nav-btn" href="#">Register</a></button>
                     </li>
                     <li class="nav-item">
-                        <button class="btn me-2" type="button"><a class="nav-link" href="#">Login</a></button>
+                        <button class="btn me-2" type="button"><a class="nav-link nav-btn" href="#">Login</a></button>
                     </li>
                     {% endif %}
                 </ul>
