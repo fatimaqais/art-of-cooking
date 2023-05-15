@@ -37,7 +37,7 @@
                         <div class="card-body text-center">
                             <h3 class="card-title">{{ post.title }}</h3>
                             <p class="card-text">{{ post.excerpt }}</p>
-                            <a href="#" class="btn post-btn">View Full Recipe</a>
+                            <a href="{% url 'view_recipe' post.slug %}" class="btn post-btn">View Full Recipe</a>
                         </div>
                         <div class="card-body">
                             <div class="text-center">
