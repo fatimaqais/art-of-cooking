@@ -1,6 +1,6 @@
 body {
     font-family: 'Fira Sans', sans-serif;
-    background-color: rgb(196, 163, 129);
+
 }
 
 h1 {
@@ -8,6 +8,8 @@ h1 {
     color: rgb(238, 241, 189)
 }
 
+
+/* Navigation Bar */
 nav {
     background-color: rgb(100, 69, 54);
 }
@@ -17,10 +19,71 @@ nav {
     justify-content: end;
 }
 
+.nav-btn {
+    color:rgb(238, 241, 189);
+    font-weight: 400;
+}
+
 .hamburger {
     background-color: rgb(196, 163, 129)
 }
 
+
+/* Index page */
+.hero-container{
+    padding: 40px 20px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text{
+    font-size: 36px;
+    font-weight: 700;
+    background-color: rgb(238, 241, 189, 0.4);
+}
+
+.hero-image{
+    background-image: url('https://res.cloudinary.com/dnisemsbn/image/upload/q_38/v1684022232/background-food_vfebbs.jpg');
+    background-size: cover;
+}
+
+.btn-background{
+    background-color: rgb(196, 163, 129);
+    border-color: rgb(100, 69, 54);
+    border-radius: 4px;
+    border-width: 2px;
+    font-weight: 600;
+}
+
+/* Recipe  */
+.recipe-section{
+    margin: 20px auto;
+}
+
+.row{
+    margin: 20px auto;
+}
+
+.image-container{
+    height: 40%;
+}
+
+.card-body{
+    background-color: rgb(190, 212, 146);
+    color:black;
+    height: auto;
+}
+
+.post-btn{
+    background-color: rgb(178, 103, 94, 0.7);
+    border-color: rgb(178, 103, 94);
+    border-radius: 4px;
+    border-width: 2px;
+}
+
+/* Footer */
 footer {
     background-color: rgb(100, 69, 54);
     color:rgb(238, 241, 189)
