@@ -41,11 +41,9 @@
             </button>
             <div class="collapse navbar-collapse nav-options" id="navbarText">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <form class="container-fluid justify-content-start">
-                            <button class="btn me-2" type="button"><a class="nav-link nav-btn active"
-                                    aria-current="page" href="{% url 'home' %}">Home</a></button>
-                        </form>
+                    <li class="nav-item active-btn">
+                        <button class="btn me-2" type="button"><a class="nav-link nav-btn" aria-current="page"
+                                href="{% url 'home' %}">Home</a></button>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
