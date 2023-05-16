@@ -1,4 +1,7 @@
 {% extends 'base.html' %} {% block content %}
+
+{% load crispy_forms_tags %}
+
 <style>
     body {
         background-image: url('https://res.cloudinary.com/dnisemsbn/image/upload/q_38/v1684022232/background-food_vfebbs.jpg');
@@ -51,12 +54,33 @@
                 <h3>Comments:</h3>
                 {% for comment in comments %}
                 <div>
-                    <p>{{ comment.name }}</p>
+                    <strong>{{ comment.name }}</strong>
                     <p>{{ comment.body }}</p>
                     <span class="text-muted">{{ comment.created_on}}</span>
                     <hr>
                 </div>
                 {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-body">
+                <!-- For later -->
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Your comment is awaiting approval
+                </div>
+                {% else %}
+                {% if user.is_authenticated %}
+
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                </form>
+                {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>
