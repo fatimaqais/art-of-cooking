@@ -1,5 +1,7 @@
 body {
     font-family: 'Fira Sans', sans-serif;
+    background-color: rgb(196, 163, 129, 0.6);
+    height: 100vh;
 }
 
 h1 {
@@ -111,6 +113,21 @@ nav {
     color: #E84610;
     background: transparent;
     border: none;
+}
+
+/* account templates */
+.auth-box{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.auth-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 20px;
+    width: 50%;
 }
 
 /* Footer */
