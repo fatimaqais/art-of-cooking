@@ -1,0 +1,55 @@
+{% extends "base.html" %} {% block content %}
+
+<!-- Cloudinary -->
+{% load cloudinary %}
+
+<!-- Crispy Forms -->
+{% load crispy_forms_tags %}
+
+<div class="col-md-12 hero-image hero-container">
+    <section class="text-center">
+        <h2 class="hero-text">Share your Own Recipe Now!</h2>
+        <hr class="block-divider">
+        <p class="lead">
+            <strong><mark>Finish Your Drafts or Create New Post</mark></strong></p>
+        <button class="btn btn-background" data-toggle="modal" data-target="#signUpModal">Create New Recipe
+            Post</button>
+        <button class="btn btn-background" data-toggle="modal" data-target="#loginModal">Finish Draft and Share</button>
+    </section>
+</div>
+
+<div class="container">
+    <div class="create-post">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn post-btn">Share</button>
+        </form>
+    </div>
+</div>
+
+{% if posted is True %}
+
+<!-- Form Successfully Posted Notification -->
+<div
+    class="succesfull-form-submission border border-black w-full md:w-7/12 lg:w-6/12 xl:w-5/12 2xl:w-4/12 bg-amber-100 p-6 mx-auto">
+
+    <!-- Title -->
+    <h2 class="text-center text-4xl mb-10">Thank you for sharing your recipe!</h2>
+
+    <!-- Paragraph -->
+    <p class="text-lg text-center mb-3">Your recipe has been successfully submitted</p>
+
+    <!-- Paragraph -->
+    <p class="text-lg text-center mb-3">Would you like to return to the home page or post another recipe?</p>
+
+    <!-- Post Recipe Link -->
+    <a class="confirm block text-center mb-3" href="{% url 'post_recipe' %}">Post another recipe!</a>
+
+    <!-- Home Link -->
+    <a href="{% url 'home' %}" class="cancel block text-center">Take me back home!</a>
+
+</div>
+{% endif %}
+
+{% endblock %}
