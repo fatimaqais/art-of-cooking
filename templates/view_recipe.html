@@ -5,15 +5,17 @@
 <style>
     body {
         background-image: url('https://res.cloudinary.com/dnisemsbn/image/upload/q_38/v1684022232/background-food_vfebbs.jpg');
-        background-size: cover;
+        background-attachment: fixed;
+        background-size: auto;
+        background-repeat: round;
     }
 </style>
 
-<div class="container">
+<div class="container recipe-page">
     <div class="row justify-content-around">
-        <div class="col-md-4 recipe-title">
+        <div class="col-md-6">
             <div class="text-center">
-                <h2 class="hero-text">{{ recipe.title }}</h2>
+                <h2>{{ recipe.title }}</h2>
                 <hr class="block-divider">
                 <p>{{ recipe.author }} | {{ recipe.created_on}}</p>
                 <p>{{ recipe.excerpt }}</p>
@@ -38,11 +40,11 @@
                     <div><strong><i class="far fa-comments"></i> {{ total_comments }}</strong></div>
                     {% endwith %}
                 </div>
-                <p>Like this post to save it you favourite recipes now!</p>
+                <p class="text-center">Like this post to save it you favourite recipes now!</p>
             </div>
         </div>
 
-        <div class="col-md-4 view-img">
+        <div class="col-md-6 view-img">
             {% if "placeholder" in recipe.featured_image.url %}
             <img src="https://res.cloudinary.com/dnisemsbn/image/upload/v1684097187/all-food_pua55k.jpg" width="100%">
             {% else %}
@@ -53,50 +55,56 @@
 
     <div class="row justify-content-around">
         <div class="col-md-4">
-            <h4>
+            <h3>
                 Ingredients:
-            </h4>
+            </h3>
             <p>{{ recipe.ingredients }}</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-8">
             <h3>Method:</h3>
             <p>{{ recipe.direction }}</p>
         </div>
-        <div class="col-md-4">
-            <div class="card-body">
-                <h3>Comments:</h3>
-                {% for comment in comments %}
-                <div>
-                    <strong>{{ comment.name }}</strong>
-                    <p>{{ comment.body }}</p>
-                    <span class="text-muted">{{ comment.created_on}}</span>
-                    <hr>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="comment-box">
+                    <h3>Comments:</h3>
+                    {% for comment in comments %}
+                    <div>
+                        <strong>{{ comment.name }}</strong>
+                        <p>{{ comment.body }}</p>
+                        <span class="text-muted">{{ comment.created_on}}</span>
+                        <hr>
+                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card-body">
-                <!-- For later -->
-                {% if commented %}
-                <div class="alert alert-success" role="alert">
-                    Your comment is awaiting approval
-                </div>
-                {% else %}
-                {% if user.is_authenticated %}
+            <div class="col-md-4 post-comment">
+                <div>
+                    {% if commented %}
+                    <div class="alert alert-success" role="alert">
+                        Your comment is awaiting approval
+                    </div>
+                    {% else %}
+                    {% if user.is_authenticated %}
 
-                <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form method="post" style="margin-top: 1.3em;">
-                    {{ comment_form | crispy }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
-                {% endif %}
-                {% endif %}
+                    <h3>Leave a comment:</h3>
+                    <p>Posting as: {{ user.username }}</p>
+                    <form method="post" style="margin-top: 1.3em;">
+                        {{ comment_form | crispy }}
+                        {% csrf_token %}
+                        <br>
+                        <button type="submit" class="btn btn-signup post-btn btn-lg">Submit</button>
+                    </form>
+                    {% endif %}
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+<div class="conatiner back-btn">
+    <a href="{% url 'home' %}" class="btn post-btn">Go Back to Home Page</a>
 </div>
 
 {% endblock %}
