@@ -18,12 +18,41 @@
     </section>
 </div>
 
-<div class="container">
+<div class="container justify-content-around">
     <div class="create-post">
         <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn post-btn">Share</button>
+            <div class="text-center">
+                {% csrf_token %}
+                <p class="recipe-form">Title: {{ form.title }}</p>
+                <p class="recipe-form">Excerpt: {{ form.excerpt }}</p>
+                <div>{{ form.featured_image }}</div>
+                <div>{{ form.image_1 }}</div>
+                <div class="row main-info">
+                    <div class="col-md-6 col-width">
+                        <p>Ingredients:</p>
+                        <div>{{ form.ingredients }}</div>
+                    </div>
+                    <div class="col-md-6 col-width">
+                        <p>Directions:</p>
+                        {{ form.direction}}
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p> Servings: {{ form.servings }}</p>
+                    </div>
+                    <div>
+                        <p>Category: {{ form.category }}</p>
+                    </div>
+                    <div>
+                        <p>Author: {{ form.author }}</p>
+                    </div>
+                    <div>
+                        <p >Status: {{ form.status }}</p>
+                    </div>
+                </div>
+                <button class="btn post-btn">Share</button>
+            </div>
         </form>
     </div>
 </div>
@@ -31,23 +60,22 @@
 {% if posted is True %}
 
 <!-- Form Successfully Posted Notification -->
-<div
-    class="succesfull-form-submission border border-black w-full md:w-7/12 lg:w-6/12 xl:w-5/12 2xl:w-4/12 bg-amber-100 p-6 mx-auto">
+<div>
 
     <!-- Title -->
-    <h2 class="text-center text-4xl mb-10">Thank you for sharing your recipe!</h2>
+    <h2>Thank you for sharing your recipe!</h2>
 
     <!-- Paragraph -->
-    <p class="text-lg text-center mb-3">Your recipe has been successfully submitted</p>
+    <p>Your recipe has been successfully submitted</p>
 
     <!-- Paragraph -->
-    <p class="text-lg text-center mb-3">Would you like to return to the home page or post another recipe?</p>
+    <p>Would you like to return to the home page or post another recipe?</p>
 
     <!-- Post Recipe Link -->
-    <a class="confirm block text-center mb-3" href="{% url 'post_recipe' %}">Post another recipe!</a>
+    <a href="{% url 'share_recipe' %}">Post another recipe!</a>
 
     <!-- Home Link -->
-    <a href="{% url 'home' %}" class="cancel block text-center">Take me back home!</a>
+    <a href="{% url 'home' %}">Take me back home!</a>
 
 </div>
 {% endif %}

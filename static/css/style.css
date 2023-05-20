@@ -9,13 +9,14 @@ h1 {
     color: rgb(238, 241, 189)
 }
 
-h2, h3{
+h2,
+h3 {
     /* font-size: 30px; */
     font-weight: 700;
     margin-top: 10px;
 }
 
-p{
+p {
     font-weight: 700;
 }
 
@@ -30,7 +31,7 @@ nav {
 }
 
 .nav-btn {
-    color:rgb(238, 241, 189);
+    color: rgb(238, 241, 189);
     font-weight: 400;
 }
 
@@ -40,7 +41,7 @@ nav {
 
 
 /* Index page */
-.hero-container{
+.hero-container {
     padding: 40px 20px;
     height: 400px;
     display: flex;
@@ -48,18 +49,18 @@ nav {
     justify-content: center;
 }
 
-.hero-text{
+.hero-text {
     font-size: 36px;
     font-weight: 700;
     background-color: rgb(238, 241, 189, 0.4);
 }
 
-.hero-image{
+.hero-image {
     background-image: url('https://res.cloudinary.com/dnisemsbn/image/upload/q_38/v1684022232/background-food_vfebbs.jpg');
     background-size: cover;
 }
 
-.btn-background{
+.btn-background {
     background-color: rgb(196, 163, 129);
     border-color: rgb(100, 69, 54);
     border-radius: 4px;
@@ -68,25 +69,25 @@ nav {
 }
 
 /* Recipe  */
-.recipe-section{
+.recipe-section {
     margin: 20px auto;
 }
 
-.row{
+.row {
     margin: 20px auto;
 }
 
-.image-container{
+.image-container {
     height: 40%;
 }
 
-.card-body{
+.card-body {
     background-color: rgb(190, 212, 146);
-    color:black;
+    color: black;
     height: auto;
 }
 
-.post-btn{
+.post-btn {
     background-color: rgb(178, 103, 94, 0.8);
     border-color: rgb(178, 103, 94);
     border-radius: 4px;
@@ -95,7 +96,7 @@ nav {
 }
 
 /* view recipe */
-.view-img{
+.view-img {
     border-radius: 4px;
     height: auto;
     display: flex;
@@ -103,12 +104,12 @@ nav {
     margin: 20px auto;
 }
 
-.recipe-page{
+.recipe-page {
     background-color: rgb(196, 163, 129, 0.7);
     border-radius: 5px;
 }
 
-.comment-box{
+.comment-box {
     margin: 20px auto;
     padding: 10px;
     border-radius: 5px;
@@ -116,12 +117,12 @@ nav {
     height: 450px;
 }
 
-.post-comment{
+.post-comment {
     margin: 20px auto;
     height: auto;
 }
 
-.like-comments{
+.like-comments {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -140,20 +141,20 @@ nav {
     border: none;
 }
 
-.back-btn{
+.back-btn {
     display: flex;
     justify-content: center;
     margin: 20px;
 }
 
 /* account templates */
-.auth-box{
+.auth-box {
     display: flex;
     justify-content: center;
     text-align: center;
 }
 
-.auth-card{
+.auth-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -162,12 +163,25 @@ nav {
 }
 
 /* Create Recipe */
-.create-post{
+.create-post {
     margin: 20px auto;
+}
+
+.recipe-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
 }
 
 /* Footer */
 footer {
     background-color: rgb(100, 69, 54);
-    color:rgb(238, 241, 189)
+    color: rgb(238, 241, 189)
 }
