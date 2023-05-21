@@ -12,13 +12,12 @@
         <hr class="block-divider">
         <p class="lead">
             <strong><mark>Finish Your Drafts or Create New Post</mark></strong></p>
-        <button class="btn btn-background" data-toggle="modal" data-target="#signUpModal">Create New Recipe
-            Post</button>
-        <button class="btn btn-background" data-toggle="modal" data-target="#loginModal">Finish Draft and Share</button>
+            <button class="btn btn-background">
+                <a class="nav-link" href="{% url 'user_recipes' %}">View your Recipes</a></button>
     </section>
 </div>
 
-<div class="container justify-content-around">
+<div class="container justify-content-around" id="new-recipe">
     <div class="create-post">
         <form method="POST">
             <div class="text-center">
@@ -48,7 +47,7 @@
                         <p>Author: {{ form.author }}</p>
                     </div>
                     <div>
-                        <p >Status: {{ form.status }}</p>
+                        <p>Status: {{ form.status }}</p>
                     </div>
                 </div>
                 <button class="btn post-btn">Share</button>
@@ -56,28 +55,5 @@
         </form>
     </div>
 </div>
-
-{% if posted is True %}
-
-<!-- Form Successfully Posted Notification -->
-<div>
-
-    <!-- Title -->
-    <h2>Thank you for sharing your recipe!</h2>
-
-    <!-- Paragraph -->
-    <p>Your recipe has been successfully submitted</p>
-
-    <!-- Paragraph -->
-    <p>Would you like to return to the home page or post another recipe?</p>
-
-    <!-- Post Recipe Link -->
-    <a href="{% url 'share_recipe' %}">Post another recipe!</a>
-
-    <!-- Home Link -->
-    <a href="{% url 'home' %}">Take me back home!</a>
-
-</div>
-{% endif %}
 
 {% endblock %}
