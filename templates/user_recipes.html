@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block content %}
+
+<!-- Cloudinary -->
+{% load cloudinary %}
+
+<!-- Crispy Forms -->
+{% load crispy_forms_tags %}
+
+<div class="col-md-12 hero-image hero-container">
+    <section class="text-center">
+        <h2 class="hero-text">Share your Own Recipe Now!</h2>
+        <hr class="block-divider">
+        <p class="lead">
+            <strong><mark>View all the Delicious Recipes shared by You!</mark></strong></p>
+        <button class="btn btn-background">
+            <a class="nav-link" href="{% url 'share_recipe' %}">Create New Recipe</a></button>
+        <button class="btn btn-background">Finish Draft and Share</button>
+    </section>
+</div>
+
+<div id="your-recipe">
+    <h2 class="text-center">Your Recipe List</h2>
+    {{ user.id }}
+    <div class="row card-size">
+        {% for recipe in your_recipes %}
+        {% if user.id == recipe.author.id %}
+        <div class="col-md-3">
+            <div class="card card-body">
+                <h3 class="card-title">{{ recipe.title }} -{{ recipe.created_on }}</h3>
+                <div class="image-container">
+                    {% if "placeholder" in recipe.featured_image.url %}
+                    <img class="card-img-top"
+                        src="https://res.cloudinary.com/dnisemsbn/image/upload/v1684097187/all-food_pua55k.jpg"
+                        alt="image of ingredients">
+                    {% else %}
+                    <img class="card-img-top" src=" {{ recipe.featured_image.url }}"
+                        alt="Pictures of prepared food dishes">
+                    {% endif %}
+                </div>
+                <div class="text-center">
+                    <p>{{ recipe.excerpt }}</p>
+                </div>
+                <a href="#" class="btn post-btn">Edit Recipe</a>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:4 %}
+    </div>
+    <div class="row card-size">
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

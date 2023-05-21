@@ -77,6 +77,10 @@ nav {
     margin: 20px auto;
 }
 
+.col {
+    margin: 20px auto;
+}
+
 .image-container {
     height: 40%;
 }
@@ -84,7 +88,19 @@ nav {
 .card-body {
     background-color: rgb(190, 212, 146);
     color: black;
-    height: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.card-img {
+    height: 100%;
+
+}
+
+.card-text {
+    overflow: hidden;
 }
 
 .post-btn {
@@ -147,6 +163,10 @@ nav {
     margin: 20px;
 }
 
+.hide {
+    display: none;
+}
+
 /* account templates */
 .auth-box {
     display: flex;
@@ -178,6 +198,10 @@ nav {
     justify-content: center;
     align-items: center;
     float: right;
+}
+
+.card-size {
+    height: 400px;
 }
 
 /* Footer */
