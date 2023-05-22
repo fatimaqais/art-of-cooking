@@ -114,4 +114,5 @@ class UserRecipes(ListView):
 
 class EditRecipe(UpdateView):
     model = Recipe
+    form_class = RecipeForm
     template_name = 'edit_recipe.html'
