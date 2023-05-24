@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.urls import reverse
+from django.utils.text import slugify
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -19,8 +21,9 @@ class Recipe(models.Model):
         ("Vegetarian", "Vegetarian")
     ]
 
-    title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True)
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(
+        max_length=200, unique=True, null=False)
     featured_image = CloudinaryField('Main Image', default='placeholder')
     image_1 = CloudinaryField('Image 2', blank=True)
     image_2 = CloudinaryField('Image 3', blank=True)
@@ -41,10 +44,17 @@ class Recipe(models.Model):
         ordering = ['-created_on']
 
     def __str__(self):
-        return self.title
+        return '{} {} {}'.format(self.title, self.category, self.author)
 
     def number_of_likes(self):
         return self.likes.count()
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title + self.category + str(self.author))
+        super(Recipe, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('user_recipes')
 
 
 class Comment(models.Model):
