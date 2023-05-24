@@ -8,16 +8,16 @@
 
 <div class="col-md-12 hero-image hero-container">
     <section class="text-center">
-        <h2 class="hero-text">Share your Own Recipe Now!</h2>
+        <h2 class="hero-text">Create your Own Recipe Now!</h2>
         <hr class="block-divider">
         <p class="lead">
             <strong><mark>Finish Your Drafts or Create New Post</mark></strong></p>
-            <button class="btn btn-background">
-                <a class="nav-link" href="{% url 'user_recipes' %}">View your Recipes</a></button>
+        <button class="btn btn-background">
+            <a class="nav-link" href="{% url 'user_recipes' %}">View your Recipes</a></button>
     </section>
 </div>
 
-<div class="container justify-content-around" id="new-recipe">
+<div class="container justify-content-around">
     <div class="create-post">
         <form method="POST">
             <div class="text-center">
@@ -29,11 +29,11 @@
                 <div class="row main-info">
                     <div class="col-md-6 col-width">
                         <p>Ingredients:</p>
-                        <div>{{ form.ingredients }}</div>
+                        {{ form.ingredients }}
                     </div>
                     <div class="col-md-6 col-width">
                         <p>Directions:</p>
-                        {{ form.direction}}
+                        {{ form.direction }}
                     </div>
                 </div>
                 <div>

@@ -47,11 +47,7 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <button class="btn me-2" type="button"><a class="nav-link nav-btn" href="#">Saved
-                                Recipes</a></button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn me-2" type="button"><a class="nav-link nav-btn" href="{% url 'share_recipe' %}">Share Your Own
+                        <button class="btn me-2" type="button"><a class="nav-link nav-btn" href="{% url 'user_recipes' %}">View Your Own
                                 Recipes</a></button>
                     </li>
                     <li class="nav-item">
@@ -81,7 +77,7 @@
 
     <!-- Footer -->
     <footer class="footer mt-auto py-3">
-        <p class="m-0 text-center">Made by Code Instituters</p>
+        <p class="m-0 text-center">Made by Fatima Qaiser</p>
         <p class="m-0 text-center">Follow us: <i class="fab fa-facebook-square ms-3"></i>
             <i class="fab fa-twitter-square ms-3"></i>
             <i class="fab fa-instagram-square ms-3"></i>

@@ -13,7 +13,7 @@ h2,
 h3 {
     /* font-size: 30px; */
     font-weight: 700;
-    margin-top: 10px;
+    margin: 20px auto;
 }
 
 p {
@@ -77,12 +77,12 @@ nav {
     margin: 20px auto;
 }
 
-.col {
-    margin: 20px auto;
+.card-space {
+    margin-bottom: 20px;
 }
 
 .image-container {
-    height: 40%;
+    margin: 20px auto;
 }
 
 .card-body {
@@ -91,7 +91,8 @@ nav {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .card-img {
@@ -109,6 +110,7 @@ nav {
     border-radius: 4px;
     border-width: 2px;
     font-weight: 600;
+    margin: 10px auto;
 }
 
 /* view recipe */
@@ -163,10 +165,6 @@ nav {
     margin: 20px;
 }
 
-.hide {
-    display: none;
-}
-
 /* account templates */
 .auth-box {
     display: flex;
@@ -197,15 +195,20 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    float: right;
-}
-
-.card-size {
-    height: 400px;
 }
 
 /* Footer */
 footer {
     background-color: rgb(100, 69, 54);
     color: rgb(238, 241, 189)
+}
+
+
+/* for medium screen sizes from 1000px and below */
+@media screen and (max-width: 1000px) {
+    nav {
+        position: fixed;
+        width: 100vw;
+        z-index: 1;
+    }
 }
