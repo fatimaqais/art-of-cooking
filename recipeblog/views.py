@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views.generic import ListView, View, CreateView, UpdateView
 from django.http import HttpResponseRedirect
 from .models import Recipe, Comment
@@ -19,7 +19,6 @@ class RecipeDetail(View):
         post = get_object_or_404(queryset, slug=slug)
         comment = post.comments.filter(approved=True).order_by('created_on')
         liked = False
-        paginate_by = 4
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
@@ -90,12 +89,14 @@ class ShareRecipe(CreateView):
     model = Recipe
     form_class = RecipeForm
     template_name = 'share_recipe.html'
+    paginate_by = 8
 
 
 class UserRecipes(ListView):
 
     model = Recipe
     template_name = 'user_recipes.html'
+    paginate_by = 8
 
     def get(self, request):
 
@@ -116,3 +117,15 @@ class EditRecipe(UpdateView):
     model = Recipe
     form_class = RecipeForm
     template_name = 'edit_recipe.html'
+
+
+class DeleteRecipe(View):
+
+    model = Recipe
+
+    def get(self, request, pk, *args, **kwargs):
+
+        recipe = get_object_or_404(Recipe, pk=pk)
+        recipe.delete()
+
+        return redirect(reverse('user_recipes'))
