@@ -77,12 +77,21 @@ nav {
     margin: 20px auto;
 }
 
+.col {
+    margin: 20px 0;
+}
+
 .card-space {
     margin-bottom: 20px;
 }
 
 .image-container {
     margin: 20px auto;
+    height: 200px;
+}
+
+.img {
+    height: inherit;
 }
 
 .card-body {
@@ -96,8 +105,7 @@ nav {
 }
 
 .card-img {
-    height: 100%;
-
+    height: inherit;
 }
 
 .card-text {
@@ -127,12 +135,18 @@ nav {
     border-radius: 5px;
 }
 
+.content {
+    background-color: rgb(246, 241, 209, 0.5);
+    height: inherit;
+}
+
 .comment-box {
     margin: 20px auto;
     padding: 10px;
     border-radius: 5px;
     background-color: rgb(246, 241, 209, 0.7);
     height: 450px;
+    overflow-y: scroll;
 }
 
 .post-comment {
@@ -197,6 +211,16 @@ nav {
     align-items: center;
 }
 
+/* Thank you message */
+.thanks {
+    width: 50%;
+    padding: 10px;
+    margin: 60px auto;
+    border: solid 2px;
+    border-radius: 5px;
+    background-color:rgb(190, 212, 146);
+}
+
 /* Footer */
 footer {
     background-color: rgb(100, 69, 54);
@@ -210,5 +234,12 @@ footer {
         position: fixed;
         width: 100vw;
         z-index: 1;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .image-container {
+        margin: 20px 0;
+        height: auto;
     }
 }
