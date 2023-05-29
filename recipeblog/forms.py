@@ -20,9 +20,10 @@ class RecipeForm(forms.ModelForm):
             'ingredients': SummernoteWidget(),
             'excerpt': TextInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;',
+                'style': 'max-width: 400px;',
                 'placeholder': 'Enter a short description of your recipe'
                 }),
+            'author': TextInput(attrs={'id': 'username', 'type': 'hidden'}),
         }
 
         fields = [
