@@ -89,14 +89,12 @@ class ShareRecipe(CreateView):
     model = Recipe
     form_class = RecipeForm
     template_name = 'share_recipe.html'
-    paginate_by = 8
 
 
 class UserRecipes(ListView):
 
     model = Recipe
     template_name = 'user_recipes.html'
-    paginate_by = 8
 
     def get(self, request):
 
@@ -129,3 +127,23 @@ class DeleteRecipe(View):
         recipe.delete()
 
         return redirect(reverse('user_recipes'))
+
+
+class SavedRecipe(ListView):
+
+    model = Recipe
+    template_name = 'saved_recipe.html'
+
+    def get(self, request):
+
+        author = request.user
+        queryset = Recipe.objects.filter(status=1).filter(likes=author)
+        queryset_dict = {
+            'saved_recipes': queryset,
+        }
+
+        return render(
+            request,
+            self.template_name,
+            queryset_dict,
+        )
