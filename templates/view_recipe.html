@@ -19,6 +19,7 @@
                 <hr class="block-divider">
                 <p>{{ recipe.author }} | {{ recipe.created_on}}</p>
                 <p>{{ recipe.excerpt }}</p>
+                <p>Serves: {{ recipe.servings }} people</p>
             </div>
             <div>
                 <div class="like-comments">
@@ -45,24 +46,27 @@
         </div>
 
         <div class="col-md-6 view-img">
-            {% if "placeholder" in recipe.featured_image.url %}
-            <img src="https://res.cloudinary.com/dnisemsbn/image/upload/v1684097187/all-food_pua55k.jpg" width="100%">
-            {% else %}
-            <img src=" {{ recipe.featured_image.url }}" width="100%">
-            {% endif %}
+            <div class="card-img">
+                {% if "placeholder" in recipe.featured_image.url %}
+                <img src="https://res.cloudinary.com/dnisemsbn/image/upload/v1684097187/all-food_pua55k.jpg"
+                    width="100%">
+                {% else %}
+                <img src="{{ recipe.featured_image.url }}" width="100%">
+                {% endif %}
+            </div>
         </div>
     </div>
 
     <div class="row justify-content-around">
-        <div class="col-md-4">
-            <h3>
-                Ingredients:
-            </h3>
-            <p>{{ recipe.ingredients|safe }}</p>
-        </div>
-        <div class="col-md-8">
-            <h3>Method:</h3>
-            <p>{{ recipe.direction|safe }}</p>
+            <div class="col-md-4 content">
+                <h3>
+                    Ingredients:
+                </h3>
+                <p>{{ recipe.ingredients|safe }}</p>
+            </div>
+            <div class="col-md-8 content">
+                <h3>Method:</h3>
+                <p>{{ recipe.direction|safe }}</p>
         </div>
         <div class="row">
             <div class="col-md-8">

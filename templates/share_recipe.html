@@ -19,13 +19,14 @@
 
 <div class="container justify-content-around">
     <div class="create-post">
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <div class="text-center">
                 {% csrf_token %}
                 <p class="recipe-form">Title: {{ form.title }}</p>
                 <p class="recipe-form">Excerpt: {{ form.excerpt }}</p>
-                <div>{{ form.featured_image }}</div>
-                <div>{{ form.image_1 }}</div>
+                <div>
+                    <p>Upload an image: {{ form.featured_image }}</p>
+                </div>
                 <div class="row main-info">
                     <div class="col-md-6 col-width">
                         <p>Ingredients:</p>
