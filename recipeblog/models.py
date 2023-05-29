@@ -22,11 +22,11 @@ class Recipe(models.Model):
         ("Vegetarian", "Vegetarian")
     ]
 
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=100)
     slug = models.SlugField(
         max_length=200, unique=True, null=False)
     featured_image = CloudinaryField('Main Image', default='placeholder')
-    excerpt = models.TextField()
+    excerpt = models.TextField(max_length=150)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='posted_recipes')
     category = models.CharField(max_length=100, choices=CATEGORIES)
