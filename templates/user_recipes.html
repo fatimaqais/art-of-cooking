@@ -8,49 +8,147 @@
 
 <div class="col-md-12 hero-image hero-container">
     <section class="text-center">
-        <h2 class="hero-text">Share your Own Recipe Now!</h2>
+        <h2 class="hero-text">Your Recipe List</h2>
         <hr class="block-divider">
         <p class="lead">
             <strong><mark>View all the Delicious Recipes shared by You!</mark></strong></p>
         <button class="btn btn-background">
             <a class="nav-link" href="{% url 'share_recipe' %}">Create New Recipe</a></button>
-        <button class="btn btn-background">Finish Draft and Share</button>
+        <button class="btn btn-background">
+            <a class="nav-link" href="{% url 'saved' %}">View liked Recipes</a></button>
     </section>
 </div>
 
-<div id="your-recipe">
+<div class=" recipe-section">
     <h2 class="text-center">Your Recipe List</h2>
-    {{ user.id }}
-    <div class="row card-size">
-        {% for recipe in your_recipes %}
-        {% if user.id == recipe.author.id %}
-        <div class="col-md-3">
-            <div class="card card-body">
-                <h3 class="card-title">{{ recipe.title }} -{{ recipe.created_on }}</h3>
-                <div class="image-container">
-                    {% if "placeholder" in recipe.featured_image.url %}
-                    <img class="card-img-top"
-                        src="https://res.cloudinary.com/dnisemsbn/image/upload/v1684097187/all-food_pua55k.jpg"
-                        alt="image of ingredients">
-                    {% else %}
-                    <img class="card-img-top" src=" {{ recipe.featured_image.url }}"
-                        alt="Pictures of prepared food dishes">
-                    {% endif %}
+
+    <div>
+        <h3>Your published recipes: </h3>
+        <div class="row card-size">
+            {% for recipe in your_recipes %}
+            {% if recipe.status == 1 %}
+            {% if user.id == recipe.author.id %}
+            <div class="card-space col col-md-3">
+                <div class="card card-body">
+                    <h3 class="card-title">{{ recipe.title }}</h3>
+                    <p>{{ recipe.created_on }}</p>
+                    <div class="image-container">
+                        {% if "placeholder" in recipe.featured_image.url %}
+                        <img class="card-img"
+                            src="https://res.cloudinary.com/dnisemsbn/image/upload/v1684097187/all-food_pua55k.jpg"
+                            alt="image of ingredients">
+                        {% else %}
+                        <img class="card-img" src=" {{ recipe.featured_image.url }}"
+                            alt="Pictures of prepared food dishes">
+                        {% endif %}
+                    </div>
+                    <div class="text-center">
+                        <p>{{ recipe.excerpt }}</p>
+                    </div>
+                    <div>
+                        <a href="{% url 'edit_recipe' recipe.slug %}" class="btn post-btn"><i
+                                class="fas fa-edit"></i></a>
+                        <button type="button" class="btn post-btn" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                            <a href="#" class="btn nav-link"><i class="fas fa-trash"></i></a>
+                        </button>
+                    </div>
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title" id="staticBackdropLabel">Delete Recipe</h2>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you would like to delete {{ recipe.title }} recipe?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-danger"><a class="nav-link"
+                                            href="{% url 'delete_recipe' recipe.id %}">Delete</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <p>{{ recipe.excerpt }}</p>
-                </div>
-                <a href="#" class="btn post-btn">Edit Recipe</a>
             </div>
+            {% if forloop.counter|divisibleby:20 %}
         </div>
-        {% if forloop.counter|divisibleby:4 %}
-    </div>
-    <div class="row card-size">
-        {% endif %}
-        {% endif %}
-        {% endfor %}
+        <div class="row card-size">
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
     </div>
 
+    <div>
+        <h3>Your draft recipes: </h3>
+        <div class="row card-size">
+            {% for recipe in your_recipes %}
+            {% if recipe.status == 0 %}
+            {% if user.id == recipe.author.id %}
+            <div class="card-space col col-md-3">
+                <div class="card card-body">
+                    <h3 class="card-title">{{ recipe.title }}</h3>
+                    <p>{{ recipe.created_on }}</p>
+                    <div class="image-container">
+                        {% if "placeholder" in recipe.featured_image.url %}
+                        <img class="card-img"
+                            src="https://res.cloudinary.com/dnisemsbn/image/upload/v1684097187/all-food_pua55k.jpg"
+                            alt="image of ingredients">
+                        {% else %}
+                        <img class="card-img" src=" {{ recipe.featured_image.url }}"
+                            alt="Pictures of prepared food dishes">
+                        {% endif %}
+                    </div>
+                    <div class="text-center">
+                        <p>{{ recipe.excerpt }}</p>
+                    </div>
+                    <div>
+                        <a href="{% url 'edit_recipe' recipe.slug %}" class="btn post-btn"><i
+                                class="fas fa-edit"></i></a>
+                        <button type="button" class="btn post-btn" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                            <a href="#" class="btn nav-link"><i class="fas fa-trash"></i></a>
+                        </button>
+                    </div>
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title" id="staticBackdropLabel">Delete Recipe</h2>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you would like to delete {{ recipe.title }} recipe?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-danger"><a class="nav-link"
+                                            href="{% url 'delete_recipe' recipe.id %}">Delete</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:20 %}
+        </div>
+        <div class="row row-md-12 card-size">
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 </div>
 
 {% endblock %}
