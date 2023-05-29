@@ -8,35 +8,37 @@
 
 <div class="col-md-12 hero-image hero-container">
     <section class="text-center">
-        <h2 class="hero-text">Edit your Recipe!</h2>
+        <h2 class="hero-text">Create your Own Recipe Now!</h2>
         <hr class="block-divider">
         <p class="lead">
             <strong><mark>Finish Your Drafts or Create New Post</mark></strong></p>
-            <button class="btn btn-background">
-                <a class="nav-link" href="{% url 'user_recipes' %}">View your Recipes</a></button>
+        <button class="btn btn-background">
+            <a class="nav-link" href="{% url 'user_recipes' %}">View your Recipes</a></button>
     </section>
 </div>
 
 <div class="container justify-content-around">
-    <div class="create-post">
-        <form method="POST">
+    <div class="create-post" id="recipe-form">
+        <form method="POST" enctype="multipart/form-data">
+            <h2 class="text-center">Edit Your Recipe</h2>
             <div class="text-center">
                 {% csrf_token %}
                 <p class="recipe-form">Title: {{ form.title }}</p>
                 <p class="recipe-form">Excerpt: {{ form.excerpt }}</p>
-                <div>{{ form.featured_image }}</div>
-                <div>{{ form.image_1 }}</div>
+                <div>
+                    <p>Upload an image: {{ form.featured_image }}</p>
+                </div>
                 <div class="row main-info">
                     <div class="col-md-6 col-width">
                         <p>Ingredients:</p>
-                        <div>{{ form.ingredients }}</div>
+                        {{ form.ingredients }}
                     </div>
                     <div class="col-md-6 col-width">
                         <p>Directions:</p>
-                        {{ form.direction}}
+                        {{ form.direction }}
                     </div>
                 </div>
-                <div class="row">
+                <div>
                     <div>
                         <p> Servings: {{ form.servings }}</p>
                     </div>
@@ -44,16 +46,33 @@
                         <p>Category: {{ form.category }}</p>
                     </div>
                     <div>
-                        <p>Author: {{ form.author }}</p>
+                        {{ form.author }}
                     </div>
                     <div>
                         <p>Status: {{ form.status }}</p>
                     </div>
                 </div>
-                <button class="btn post-btn">Share</button>
+                <button id="submit-recipe" class="btn post-btn" type="submit">Share</button>
             </div>
         </form>
     </div>
 </div>
+<div class="container text-center">
+    <div id="thank-you" style="display: none;">
+        <div class="thanks">
+            <h2 class="card-title">Thankyou for sharing that amazing recipe!</h2>
+            <div class="image-container">
+                <img class="card-img-top card-img"
+                    src="https://res.cloudinary.com/dnisemsbn/image/upload/v1685371870/happy-food_stlv2v.jpg"
+                    alt="happy dog image printed on a toast">
+            </div>
+            <p><muted>You will be redirected to your recipe page in few minutes</muted></p>
+        </div>
+    </div>
+</div>
 
+<script>
+    var author = '{{ user.username }}';
+    document.getElementById("username").placeholder = author
+</script>
 {% endblock %}

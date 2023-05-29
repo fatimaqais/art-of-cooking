@@ -18,7 +18,9 @@
 </div>
 
 <div class="container justify-content-around">
-    <div class="create-post">
+    {{ user.username }}
+    <h2 class="text-center">Create a New Recipe Post</h2>
+    <div class="create-post" id="recipe-form">
         <form method="POST" enctype="multipart/form-data">
             <div class="text-center">
                 {% csrf_token %}
@@ -39,22 +41,40 @@
                 </div>
                 <div>
                     <div>
+                        {{ form.author }}
+                    </div>
+                    <div>
                         <p> Servings: {{ form.servings }}</p>
                     </div>
                     <div>
                         <p>Category: {{ form.category }}</p>
                     </div>
                     <div>
-                        <p>Author: {{ form.author }}</p>
-                    </div>
-                    <div>
                         <p>Status: {{ form.status }}</p>
                     </div>
                 </div>
-                <button class="btn post-btn">Share</button>
+                <button id="submit-recipe" class="btn post-btn" type="submit">Share</button>
             </div>
         </form>
     </div>
 </div>
+<div class="container text-center">
+    <div id="thank-you" style="display: none;">
+        <div class="thanks">
+            <h2 class="card-title">Thankyou for sharing that amazing recipe!</h2>
+            <div class="image-container">
+                <img class="card-img-top card-img"
+                    src="https://res.cloudinary.com/dnisemsbn/image/upload/v1685371870/happy-food_stlv2v.jpg"
+                    alt="happy dog image printed on a toast">
+            </div>
+            <p><muted>You will be redirected to your recipe page in few minutes</muted></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    var author = '{{ user.id }}';
+    document.getElementById("username").value = author
+</script>
 
 {% endblock %}
