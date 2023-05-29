@@ -30,7 +30,6 @@ class RecipeForm(forms.ModelForm):
             'excerpt',
             'author',
             'featured_image',
-            'image_1',
             'category',
             'servings',
             'ingredients',

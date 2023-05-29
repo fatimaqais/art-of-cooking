@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+import cloudinary.uploader
 from django.urls import reverse
 from django.utils.text import slugify
 
@@ -25,8 +26,6 @@ class Recipe(models.Model):
     slug = models.SlugField(
         max_length=200, unique=True, null=False)
     featured_image = CloudinaryField('Main Image', default='placeholder')
-    image_1 = CloudinaryField('Image 2', blank=True)
-    image_2 = CloudinaryField('Image 3', blank=True)
     excerpt = models.TextField()
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='posted_recipes')
@@ -50,7 +49,7 @@ class Recipe(models.Model):
         return self.likes.count()
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title + self.category + str(self.author))
+        self.slug = slugify(f"{self.title}-{self.category}-{str(self.author)}")
         super(Recipe, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
