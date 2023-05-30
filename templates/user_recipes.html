@@ -28,7 +28,7 @@
             {% for recipe in your_recipes %}
             {% if recipe.status == 1 %}
             {% if user.id == recipe.author.id %}
-            <div class="card-space col col-md-3">
+            <div class="card-space col-md-3">
                 <div class="card card-body">
                     <h3 class="card-title">{{ recipe.title }}</h3>
                     <p>{{ recipe.created_on }}</p>
@@ -92,7 +92,7 @@
             {% for recipe in your_recipes %}
             {% if recipe.status == 0 %}
             {% if user.id == recipe.author.id %}
-            <div class="card-space col col-md-3">
+            <div class="card-space col-md-3">
                 <div class="card card-body">
                     <h3 class="card-title">{{ recipe.title }}</h3>
                     <p>{{ recipe.created_on }}</p>
