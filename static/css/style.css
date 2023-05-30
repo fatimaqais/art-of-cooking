@@ -1,3 +1,4 @@
+/* common styling on element */
 body {
     font-family: 'Fira Sans', sans-serif;
     background-color: rgb(196, 163, 129, 0.6);
@@ -40,7 +41,7 @@ nav {
 }
 
 
-/* Index page */
+/* Index page and hero container */
 .hero-container {
     padding: 40px 20px;
     height: 400px;
@@ -140,6 +141,7 @@ nav {
     height: inherit;
 }
 
+/* comment section */
 .comment-box {
     margin: 20px auto;
     padding: 10px;
@@ -154,6 +156,7 @@ nav {
     height: auto;
 }
 
+/* like section */
 .like-comments {
     display: flex;
     align-items: center;
@@ -244,6 +247,7 @@ footer {
     }
 }
 
+/* for small screen sizes from 510px and below */
 @media screen and (max-width: 510px) {
     .card-body{
         width: auto;

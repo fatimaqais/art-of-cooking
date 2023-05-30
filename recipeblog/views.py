@@ -15,6 +15,10 @@ class PostRecipe(ListView):
 class RecipeDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
+        """
+        Get method for fetching comments and post details and returning
+        variables.
+        """
         queryset = Recipe.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comment = post.comments.filter(approved=True).order_by('created_on')
@@ -118,8 +122,6 @@ class EditRecipe(UpdateView):
 
 
 class DeleteRecipe(View):
-
-    model = Recipe
 
     def get(self, request, pk, *args, **kwargs):
 
