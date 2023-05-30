@@ -12,10 +12,10 @@
         <hr class="block-divider">
         <p class="lead">
             <strong><mark>View all the Delicious Recipes shared by You!</mark></strong></p>
-        <button class="btn btn-background">
-            <a class="nav-link" href="{% url 'share_recipe' %}">Create New Recipe</a></button>
-        <button class="btn btn-background">
-            <a class="nav-link" href="{% url 'saved' %}">View liked Recipes</a></button>
+        <div class="hero-options">
+            <a class="nav-link btn btn-background" href="{% url 'share_recipe' %}">Create New Recipe</a>
+            <a class="nav-link btn btn-background" href="{% url 'saved' %}">View liked Recipes</a>
+        </div>
     </section>
 </div>
 
@@ -68,8 +68,8 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-danger"><a class="nav-link"
-                                            href="{% url 'delete_recipe' recipe.id %}">Delete</a></button>
+                                    <a class="nav-link btn btn-danger"
+                                        href="{% url 'delete_recipe' recipe.id %}">Delete</a>
                                 </div>
                             </div>
                         </div>

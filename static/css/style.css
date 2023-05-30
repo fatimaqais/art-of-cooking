@@ -5,7 +5,7 @@ body {
 }
 
 h1 {
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Playfair Display', serif;
     color: rgb(238, 241, 189)
 }
 
@@ -32,6 +32,7 @@ nav {
 .nav-btn {
     color: rgb(238, 241, 189);
     font-weight: 400;
+    margin: auto 20px;
 }
 
 .hamburger {
@@ -59,12 +60,16 @@ nav {
     background-size: cover;
 }
 
+.hero-options {
+    display: inline-flex;
+}
+
 .btn-background {
-    background-color: rgb(196, 163, 129);
-    border-color: rgb(100, 69, 54);
-    border-radius: 4px;
-    border-width: 2px;
+    background-color: rgb(192, 156, 120);
     font-weight: 600;
+    margin: 10px 10px;
+    width: 150px;
+    padding: 5px;
 }
 
 /* Recipe  */

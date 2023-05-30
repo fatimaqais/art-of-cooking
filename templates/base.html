@@ -16,8 +16,6 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&family=Playfair+Display&display=swap"
         rel="stylesheet">
     <!-- Static CSS File -->
@@ -42,30 +40,26 @@
             <div class="collapse navbar-collapse nav-options" id="navbarText">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <button class="btn me-2" type="button"><a class="nav-link nav-btn" aria-current="page"
-                                href="{% url 'home' %}">Home</a></button>
+                        <a class="nav-link nav-btn btn me-2" href="{% url 'home' %}">Home</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <button class="btn me-2" type="button"><a class="nav-link nav-btn" href="{% url 'user_recipes' %}">View Your Own
-                                Recipes</a></button>
+                        <a class="nav-link nav-btn" href="{% url 'user_recipes' %}">View Your Own
+                            Recipes</a>
                     </li>
                     <li class="nav-item">
-                        <button class="btn me-2" type="button"><a class="nav-link nav-btn" href="{% url 'saved' %}">Saved
-                                Recipes</a></button>
+                        <a class="nav-link nav-btn btn" href="{% url 'saved' %}">Saved
+                            Recipes</a>
                     </li>
                     <li class="nav-item">
-                        <button class="btn me-2" type="button"><a class="nav-link nav-btn"
-                                href="{% url 'account_logout' %}">Logout</a></button>
+                        <a class="nav-link nav-btn btn" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <button class="btn me-2" type="button"><a class="nav-link nav-btn"
-                                href="{% url 'account_signup' %}">Register</a></button>
+                        <a class="nav-link nav-btn btn" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <button class="btn me-2" type="button"><a class="nav-link nav-btn"
-                                href="{% url 'account_login' %}">Login</a></button>
+                        <a class="nav-link nav-btn btn" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -82,8 +76,10 @@
     <!-- Footer -->
     <footer class="footer mt-auto py-3">
         <p class="m-0 text-center">Made by Fatima Qaiser</p>
-        <p class="m-0 text-center">Follow on: <a href="https://github.com/fatimaqais" class="nav-btn" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/fatima-qaiser/" class="nav-btn" target="_blank"><i class="fab fa-linkedin"></i></a></p>
+        <p class="m-0 text-center">Follow on: <a href="https://github.com/fatimaqais" class="nav-btn" target="_blank"><i
+                    class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/fatima-qaiser/" class="nav-btn" target="_blank"><i
+                    class="fab fa-linkedin"></i></a></p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"

@@ -9,16 +9,17 @@
         {% if user.is_authenticated %}
         <p class="lead">
             <strong><mark>Share your own Recipes Now!</mark></strong></p>
-        <button class="btn btn-background">
-            <a class="nav-link" href="{% url 'user_recipes' %}">View your Recipes</a></button>
-        <button class="btn btn-background">
-            <a class="nav-link" href="{% url 'share_recipe' %}">Create New Recipe</a></button>
+        <div class="hero-options">
+            <a class="nav-link btn btn-background" href="{% url 'user_recipes' %}">View your Recipes</a>
+            <a class="nav-link btn btn-background" href="{% url 'share_recipe' %}">Create New Recipe</a>
+        </div>
         {% else %}
         <p class="lead">
-            <strong><mark>Sign Up Now to share your own Recipes!</mark></strong></p>
-        <button class="btn btn-background">
-            <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a></button>
-        <button class="btn btn-background"><a class="nav-link" href="{% url 'account_login' %}">Login</a></button>
+            <strong><mark>Sign Up Now to share your own Recipes!</mark></strong></p> 
+        <div class="hero-options">
+            <a class="nav-link btn btn-background" href="{% url 'account_signup' %}">Sign Up</a>
+            <a class="nav-link btn btn-background" href="{% url 'account_login' %}">Login</a>
+        </div>
         {% endif %}
     </section>
 </div>

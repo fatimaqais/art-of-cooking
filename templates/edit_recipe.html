@@ -12,8 +12,9 @@
         <hr class="block-divider">
         <p class="lead">
             <strong><mark>Finish Your Drafts or Create New Post</mark></strong></p>
-        <button class="btn btn-background">
-            <a class="nav-link" href="{% url 'user_recipes' %}">View your Recipes</a></button>
+        <div class="hero-options">
+            <a class="nav-link btn btn-background" href="{% url 'user_recipes' %}">View your Recipes</a>
+        </div>
     </section>
 </div>
 
@@ -66,13 +67,15 @@
                     src="https://res.cloudinary.com/dnisemsbn/image/upload/v1685371870/happy-food_stlv2v.jpg"
                     alt="happy dog image printed on a toast">
             </div>
-            <p><muted>You will be redirected to your recipe page in few minutes</muted></p>
+            <p>
+                <muted>You will be redirected to your recipe page in few minutes</muted>
+            </p>
         </div>
     </div>
 </div>
 
 <script>
     var author = '{{ user.username }}';
-    document.getElementById("username").placeholder = author
+    document.getElementById("username").placeholder = author;
 </script>
 {% endblock %}

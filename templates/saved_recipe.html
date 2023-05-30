@@ -8,10 +8,10 @@
         <hr class="block-divider">
         <p class="lead">
             <strong><mark>Share your own Recipes Now!</mark></strong></p>
-        <button class="btn btn-background">
-            <a class="nav-link" href="{% url 'user_recipes' %}">View your Recipes</a></button>
-        <button class="btn btn-background">
-            <a class="nav-link" href="{% url 'share_recipe' %}">Create New Recipe</a></button>
+        <div class="hero-options">
+            <a class="nav-link btn btn-background" href="{% url 'user_recipes' %}">View your Recipes</a>
+            <a class="nav-link btn btn-background" href="{% url 'share_recipe' %}">Create New Recipe</a>
+        </div>
     </section>
 </div>
 
@@ -51,7 +51,7 @@
                         <div class="card-body">
                             <div class="text-center">
                                 <p><button type="submit" name="recipe_id" value="{{recipe.slug}}" class="btn-like"><i
-                                    class="fas fa-heart"></i></button> {{ recipe.number_of_likes }}</p>
+                                            class="fas fa-heart"></i></button> {{ recipe.number_of_likes }}</p>
                             </div>
                             <hr />
                             <p class="card-text text-muted h5 text-center">{{ recipe.created_on}}</p>
