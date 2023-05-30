@@ -25,7 +25,6 @@ Link to the [Live Site](https://the-art-of-cooking.herokuapp.com/)
 * [Features](#features)
   * [General Features on Each Page](#general-features-on-each-page)
   * [Future Implementations](#future-implementations)
-  * [Accessibility](#accessibility)
 
 * [Technologies Used](#technologies-used)
   * [Languages Used](#languages-used)
@@ -43,7 +42,6 @@ Link to the [Live Site](https://the-art-of-cooking.herokuapp.com/)
   * [Code Used](#code-used)
   * [Content](#content)
   * [Media](#media)
-  * [Acknowledgments](#acknowledgments)
 
 ---
 
@@ -95,18 +93,58 @@ As a returning registered user of the site I want to be able to:
 - All the image for the page was taken from [Pexels](https://www.pexels.com/). The site images were kept simple and food related so the theme of the page is clear to the user.
 
 ### Wireframes
-- All the wireframes were created using Balsamiq.
+- All the wireframes were created using Balsamiq. The below wireframes show the structure of all the pages as they are all similar.
 
-#### __Home Page__
 ![Home page while logged out](assets/images/wireframes/home-page-logout.png)
 ![Home page while logged in](assets/images/wireframes/home-page-loggedin.png)
 ![Home page on mobile](assets/images/wireframes/home-page-mobile.png)
-#### __Saved Recipe Page__
 
+## Features
+### General Feature on Each Page
+- Logged in Navbar
+This Navbar is diplayed on all pages when the user is logged in
+![Navbar logged in](assets/images/features/nav.png)
+- Logged out Navbar
+This Navbar is displayed on all pages when user is logged out.
+![Navbar logged out](assets/images/features/loggedout-nav.png)
+- Footer
+Footer is diaplayed on all pages
+![Footer](assets/images/features/footer.png)
 
-#### __Share Recipe Page__
+#### __Home Page__
+- The home page displays 6 recipes and it can be viewed by anyone. If there are more than 6 recipes, a button is displayed at the bottom allowing the user to go to the next page to display more recipes. 
 
-#### __Users Own Recipe Page__
+![Home Page](assets/images/features/homepage.png)
+
+- If the user is logged out then the user is given different options than the above image.
+
+![Jumbotron logged out option](assets/images/features/loggedout-home.png)
+
+### __View Recipe Page__
+- The view recipe page is styled a bit differently just to make the displayed recipe look more interesting and fun.
+
+![View Recipe Page](assets/images/features/view-recipe-page.png)
+
+- If the comment is submitted by the user, a small message is displayed informing the user that the comments need to be approved.
+
+![Approve comment message](assets/images/features/approval-message.png)
+
+### __Share and Edit Recipe Page__
+- Both the share recipe page and the edit recipe page have the same structure and layout to keep the styling of the page consistent. The form has differnt fields for user to fill in. There is also a text editor on the page so users can add styling to their text.
+
+![Share and edit recipe page](assets/images/features/share-recipe.png)
+
+### __Saved Recipes__
+- Users can like posts so they can view them later in their saved recipes. The saved recipe page has the same layout as the home page to keep the styling consistent.
+
+![Saved Recipe](assets/images/features/saved-recipe.png)
+
+### Future Implementations
+In the future I would like to:
+- Add a search bar on the home page so users can search for recipes they want to see.
+- Give user the option to delete their account
+- Allow user to change password or reset password.
+- Allows user to manage their profile.
 
 ## Technologies Used
 ### Languages Used
@@ -271,3 +309,19 @@ To clone the repository:
     ```
 
 - - -
+
+## Testing
+
+To view all the testing done for this page, [Testing.md](TESTING.md)
+
+## Credits
+### Code
+- Some of the code for the view file were inspired by the [Codemy.com](https://www.youtube.com/playlist?list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi) youtube blog guide.
+- The README file guide was taken from [Kera Cudmore](https://github.com/kera-cudmore).
+
+### Content
+Content for this page was created by Fatima. The recipes are a sample recipe to show examples of how the site works.
+
+### Media
+- Most images were taken from [Pexels](https://www.pexels.com/)
+- Icons were taken from [Font Awesome](https://fontawesome.com/)
