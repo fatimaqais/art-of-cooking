@@ -29,15 +29,13 @@
                 <div>
                     <p>Upload an image: {{ form.featured_image }}</p>
                 </div>
-                <div class="row main-info">
-                    <div class="col-md-6 col-width">
-                        <p>Ingredients:</p>
-                        {{ form.ingredients }}
-                    </div>
-                    <div class="col-md-6 col-width">
-                        <p>Directions:</p>
-                        {{ form.direction }}
-                    </div>
+                <div>
+                    <p>Ingredients:</p>
+                    {{ form.ingredients }}
+                </div>
+                <div>
+                    <p>Directions:</p>
+                    {{ form.direction }}
                 </div>
                 <div>
                     <div>
@@ -59,7 +57,7 @@
     </div>
 </div>
 <div class="container text-center">
-    <div id="thank-you" style="display: none;">
+    <div id="thank-you" class="hidden">
         <div class="thanks">
             <h2 class="card-title">Thankyou for sharing that amazing recipe!</h2>
             <div class="image-container">
@@ -67,9 +65,7 @@
                     src="https://res.cloudinary.com/dnisemsbn/image/upload/v1685371870/happy-food_stlv2v.jpg"
                     alt="happy dog image printed on a toast">
             </div>
-            <p>
-                <muted>You will be redirected to your recipe page in few minutes</muted>
-            </p>
+            <muted>You will be redirected to your recipe page in few minutes</muted>
         </div>
     </div>
 </div>

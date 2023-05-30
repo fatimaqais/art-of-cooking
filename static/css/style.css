@@ -221,6 +221,10 @@ nav {
     background-color:rgb(190, 212, 146);
 }
 
+.hidden {
+    display: none;
+}
+
 /* Footer */
 footer {
     background-color: rgb(100, 69, 54);

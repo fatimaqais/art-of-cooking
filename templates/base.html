@@ -16,7 +16,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&family=Playfair+Display&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&amp;family=Playfair+Display&amp;display=swap"
         rel="stylesheet">
     <!-- Static CSS File -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -40,11 +40,11 @@
             <div class="collapse navbar-collapse nav-options" id="navbarText">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link nav-btn btn me-2" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link nav-btn btn" href="{% url 'home' %}">Home</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link nav-btn" href="{% url 'user_recipes' %}">View Your Own
+                        <a class="nav-link nav-btn btn" href="{% url 'user_recipes' %}">View Your Own
                             Recipes</a>
                     </li>
                     <li class="nav-item">
