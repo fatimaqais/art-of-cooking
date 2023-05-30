@@ -32,7 +32,7 @@ DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['the-art-of-cooking.herokuapp.com', 'localhost', '8000-fatimaqais-artofcooking-2rfds1fdsvg.ws-eu97.gitpod.io']
+ALLOWED_HOSTS = ['the-art-of-cooking.herokuapp.com', 'localhost']
 
 
 # Application definition
